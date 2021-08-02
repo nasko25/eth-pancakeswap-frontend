@@ -1,5 +1,7 @@
 import { ChainId, Token } from '@pancakeswap/sdk'
 
+// TODO https://github.com/Uniswap/uniswap-interface/blob/main/src/constants/tokens.ts
+
 export const CAKE: { [chainId: number]: Token } = {
   [ChainId.MAINNET]: new Token(
     ChainId.MAINNET,
