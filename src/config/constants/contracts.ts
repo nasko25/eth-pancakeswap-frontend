@@ -64,7 +64,7 @@ export default {
     56: '0x0567F2323251f0Aab15c8dFb1967E4e8A7D42aeE',
     97: '',
     1: '0x7c5d4F8345e66f68099581Db340cd65B078C41f4', // eth mainnet
-    3: '0x1e5a19e9f382DD254D6983FF253A64F0bF15058a',
+    3: '0x1e5a19e9f382DD254D6983FF253A64F0bF15058a', // ropsten eth testnet
   },
   bunnySpecialCakeVault: {
     56: '0x5B4a770Abe7Eafb2601CA4dF9d73EA99363E60a4',
