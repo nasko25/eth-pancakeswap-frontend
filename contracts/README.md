@@ -1,7 +1,9 @@
 ## Description
-These following contracts are taken from https://github.com/pancakeswap/pancake-farm:
-	- MasterChef.sol
-	- Multicall.sol
-	- SousChef.sol
-	- SyrupBar.sol
-	- (CakeToken.sol)
+This repo is a fork of https://github.com/pancakeswap/pancake-farm.
+
+## Run tests
+1) Install the dependencies:
+`yarn`
+
+2) Run the tests:
+`yarn test`
