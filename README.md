@@ -8,6 +8,8 @@ This project contains the main features of the pancake application.
 
 If you want to contribute, please refer to the [contributing guidelines](./CONTRIBUTING.md) of this project.
 
+In `/contracts` you can find some of the https://github.com/pancakeswap/pancake-farm contracts (and most of the code).
+
 ## Description
 This is a fork of [pancakeswap-frontend](https://github.com/pancakeswap/pancake-frontend).
 The idea for it is to be ran on the ethereum network. Since pancakeswap was originally a uniswap fork, I believe it should be doable.

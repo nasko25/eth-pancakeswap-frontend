@@ -77,11 +77,11 @@ const config: (t: ContextApi['t']) => MenuEntry[] = (t) => [
       },
     ],
   },
-  {
-    label: t('Info'),
-    icon: 'InfoIcon',
-    href: 'https://pancakeswap.info',
-  },
+  // {
+  //   label: t('Info'),
+  //   icon: 'InfoIcon',
+  //   href: 'https://pancakeswap.info',
+  // },
   {
     label: t('IFO'),
     icon: 'IfoIcon',
