@@ -15,3 +15,10 @@ I will first try to make it work on one of the eth test networks, and if it work
 
 ## To update this repo with the changes from the original pancakeswap-frontend repo:
 `git remote update`
+
+## Starting
+1) Install dependencies:
+`yarn`
+
+2) Start the frontend server:
+`yarn start`
