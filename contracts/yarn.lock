@@ -1598,6 +1598,11 @@
     find-up "^4.1.0"
     fs-extra "^8.1.0"
 
+"@openzeppelin/contracts@^4.2.0":
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/@openzeppelin/contracts/-/contracts-4.2.0.tgz#260d921d99356e48013d9d760caaa6cea35dc642"
+  integrity sha512-LD4NnkKpHHSMo5z9MvFsG4g1xxZUDqV3A3Futu3nvyfs4wPwXxqOgMaxOoa2PeyGL2VNeSlbxT54enbQzGcgJQ==
+
 "@openzeppelin/test-helpers@^0.5.6":
   version "0.5.12"
   resolved "https://registry.yarnpkg.com/@openzeppelin/test-helpers/-/test-helpers-0.5.12.tgz#7933abcc071031f898febfed67f5b83716d0ccb0"
@@ -1614,10 +1619,10 @@
     web3 "^1.2.5"
     web3-utils "^1.2.5"
 
-"@pancakeswap/pancake-swap-lib@^0.0.1":
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/@pancakeswap/pancake-swap-lib/-/pancake-swap-lib-0.0.1.tgz#8ed3bb89f7282e63e6dd1937914df6d6110cf76f"
-  integrity sha512-zSx5nvDM9HN9aziZXXoZIqmj3wKLkP9HHZZpr+1bxjmZrSfYecORrnl7YKy1nqLU4FW7F9wqMltmp1dFNIeseg==
+"@pancakeswap/pancake-swap-lib@^0.0.4":
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/@pancakeswap/pancake-swap-lib/-/pancake-swap-lib-0.0.4.tgz#b00f78c3aa249e02146e366322f2d65154a893ef"
+  integrity sha512-efauTqrPQX0P2X159Z5YnAVNmD8jvFxei9iIbDU850MG7KuupfqNTfDoN2/dCMo2GomSFokG2MjW0GenZc4EFg==
 
 "@protobufjs/aspromise@^1.1.1", "@protobufjs/aspromise@^1.1.2":
   version "1.1.2"

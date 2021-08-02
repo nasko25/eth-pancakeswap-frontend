@@ -1,11 +1,12 @@
-pragma solidity 0.6.12;
+pragma solidity 0.8.6;
 
-import "@pancakeswap/pancake-swap-lib/contracts/token/BEP20/BEP20.sol";
+//import "@pancakeswap/pancake-swap-lib/contracts/token/BEP20/BEP20.sol";
+import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 
 import "./CakeToken.sol";
 
 // SyrupBar with Governance.
-contract SyrupBar is BEP20('SyrupBar Token', 'SYRUP') {
+contract SyrupBar is ERC20('SyrupBar Token', 'SYRUP'), Ownable {
     /// @notice Creates `_amount` token to `_to`. Must only be called by the owner (MasterChef).
     function mint(address _to, uint256 _amount) public onlyOwner {
         _mint(_to, _amount);
@@ -141,7 +142,7 @@ contract SyrupBar is BEP20('SyrupBar Token', 'SYRUP') {
         address signatory = ecrecover(digest, v, r, s);
         require(signatory != address(0), "CAKE::delegateBySig: invalid signature");
         require(nonce == nonces[signatory]++, "CAKE::delegateBySig: invalid nonce");
-        require(now <= expiry, "CAKE::delegateBySig: signature expired");
+        require(block.timestamp <= expiry, "CAKE::delegateBySig: signature expired");
         return _delegate(signatory, delegatee);
     }
 
@@ -222,7 +223,7 @@ contract SyrupBar is BEP20('SyrupBar Token', 'SYRUP') {
                 // decrease old representative
                 uint32 srcRepNum = numCheckpoints[srcRep];
                 uint256 srcRepOld = srcRepNum > 0 ? checkpoints[srcRep][srcRepNum - 1].votes : 0;
-                uint256 srcRepNew = srcRepOld.sub(amount);
+                uint256 srcRepNew = srcRepOld - amount;
                 _writeCheckpoint(srcRep, srcRepNum, srcRepOld, srcRepNew);
             }
 
@@ -230,7 +231,7 @@ contract SyrupBar is BEP20('SyrupBar Token', 'SYRUP') {
                 // increase new representative
                 uint32 dstRepNum = numCheckpoints[dstRep];
                 uint256 dstRepOld = dstRepNum > 0 ? checkpoints[dstRep][dstRepNum - 1].votes : 0;
-                uint256 dstRepNew = dstRepOld.add(amount);
+                uint256 dstRepNew = dstRepOld + amount;
                 _writeCheckpoint(dstRep, dstRepNum, dstRepOld, dstRepNew);
             }
         }
@@ -261,7 +262,7 @@ contract SyrupBar is BEP20('SyrupBar Token', 'SYRUP') {
         return uint32(n);
     }
 
-    function getChainId() internal pure returns (uint) {
+    function getChainId() internal view returns (uint) {
         uint256 chainId;
         assembly { chainId := chainid() }
         return chainId;
