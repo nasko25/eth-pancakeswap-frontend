@@ -1,8 +1,6 @@
 pragma solidity 0.8.6;
 
 // TODO change occurences of Cake to RBRY
-// TODO everything should be available from openzeppelin
-//  remove @pancakeswap/pancake-swap-lib from package.json when it is no longer needed
 import "@openzeppelin/contracts/utils/math/SafeMath.sol";
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol";
