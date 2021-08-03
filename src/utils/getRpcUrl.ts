@@ -4,7 +4,9 @@ import sample from 'lodash/sample'
 export const nodes = [process.env.REACT_APP_NODE_1, process.env.REACT_APP_NODE_2, process.env.REACT_APP_NODE_3]
 
 const getNodeUrl = () => {
-  return sample(nodes)
+  //return sample(nodes)
+  // always choose the first node
+  return nodes[0]
 }
 
 export default getNodeUrl

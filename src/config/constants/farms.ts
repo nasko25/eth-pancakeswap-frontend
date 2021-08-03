@@ -1,6 +1,8 @@
 import tokens from './tokens'
 import { FarmConfig } from './types'
 
+// TODO https://github.com/pancakeswap/pancake-swap-core/blob/master/contracts/PancakePair.sol
+// https://github.com/pancakeswap/pancake-swap-core/blob/master/contracts/PancakeFactory.sol
 const farms: FarmConfig[] = [
   /**
    * These 3 farms (PID 0, 251, 252) should always be at the top of the file.
