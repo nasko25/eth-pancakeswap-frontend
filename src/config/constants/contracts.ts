@@ -1,4 +1,7 @@
 export default {
+  // TODO use masterchef_eth.json as the abi for the eth masterchef equivalent depending on the chain:
+  // import { useWeb3React } from '@web3-react/core'
+  // const { chainId } = useWeb3React();
   masterChef: {
     // https://github.com/pancakeswap/pancake-farm/blob/master/contracts/MasterChef.sol
     97: '0x1d32c2945C8FDCBc7156c553B7cEa4325a17f4f9', // bsc testnet
@@ -9,6 +12,7 @@ export default {
     // https://github.com/pancakeswap/pancake-farm/blob/master/contracts/SousChef.sol
     97: '0xd3af5fe61dbaf8f73149bfcfa9fb653ff096029a',
     56: '0x6ab8463a4185b80905e05a9ff80a2d6b714b9e95',
+    3: 'TODO',
   },
   lotteryV2: {
     97: '0x5790c3534F30437641541a0FA04C992799602998',
@@ -18,6 +22,7 @@ export default {
     // https://github.com/pancakeswap/pancake-farm/blob/master/contracts/libs/Multicall.sol
     56: '0xfF6FD90A470Aaa0c1B8A54681746b07AcdFedc9B',
     97: '0x8F3273Fb89B075b1645095ABaC6ed17B2d4Bc576',
+    3: 'TODO',
   },
   pancakeProfile: {
     56: '0xDf4dBf6536201370F95e06A0F8a7a70fE40E388a',
