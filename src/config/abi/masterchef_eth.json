@@ -3,7 +3,7 @@
     "inputs": [
       {
         "internalType": "contract RBRYToken",
-        "name": "_cake",
+        "name": "_raspberry",
         "type": "address"
       },
       {
@@ -18,7 +18,7 @@
       },
       {
         "internalType": "uint256",
-        "name": "_cakePerBlock",
+        "name": "_RBRYPerBlock",
         "type": "uint256"
       },
       {
@@ -139,20 +139,7 @@
   },
   {
     "inputs": [],
-    "name": "cake",
-    "outputs": [
-      {
-        "internalType": "contract RBRYToken",
-        "name": "",
-        "type": "address"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "cakePerBlock",
+    "name": "RBRYPerBlock",
     "outputs": [
       {
         "internalType": "uint256",
@@ -229,8 +216,21 @@
       },
       {
         "internalType": "uint256",
-        "name": "accCakePerShare",
+        "name": "accRBRYPerShare",
         "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "raspberry",
+    "outputs": [
+      {
+        "internalType": "contract RBRYToken",
+        "name": "",
+        "type": "address"
       }
     ],
     "stateMutability": "view",
@@ -459,7 +459,7 @@
         "type": "address"
       }
     ],
-    "name": "pendingCake",
+    "name": "pendingRBRY",
     "outputs": [
       {
         "internalType": "uint256",
