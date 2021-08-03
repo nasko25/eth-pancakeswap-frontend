@@ -1,13 +1,13 @@
 const { expectRevert, time } = require('@openzeppelin/test-helpers');
-const CakeToken = artifacts.require('CakeToken');
+const RBRYToken = artifacts.require('RBRYToken');
 const MasterChef = artifacts.require('MasterChef');
 const SyrupBar = artifacts.require('SyrupBar');
 const SousChef = artifacts.require('SousChef');
-const MockBEP20 = artifacts.require('libs/MockBEP20');
+const MockERC20 = artifacts.require('libs/MockERC20');
 
 contract('SousChef', ([alice, bob, carol, dev, minter]) => {
   beforeEach(async function() {
-    this.syrup = await MockBEP20.new('LPToken', 'LP1', '1000000', {
+    this.syrup = await MockERC20.new('LPToken', 'LP1', '1000000', {
       from: minter,
     });
     this.chef = await SousChef.new(this.syrup.address, '40', '300', '400', {
@@ -162,9 +162,9 @@ contract('SousChef', ([alice, bob, carol, dev, minter]) => {
   });
 
   it('try syrup', async function() {
-    this.cake = await CakeToken.new({ from: minter });
+    this.cake = await RBRYToken.new({ from: minter });
     this.syrup = await SyrupBar.new(this.cake.address, { from: minter });
-    this.lp1 = await MockBEP20.new('LPToken', 'LP1', '1000000', {
+    this.lp1 = await MockERC20.new('LPToken', 'LP1', '1000000', {
       from: minter,
     });
     this.chef = await MasterChef.new(

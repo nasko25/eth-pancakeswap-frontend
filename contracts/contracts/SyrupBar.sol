@@ -1,9 +1,9 @@
 pragma solidity 0.8.6;
 
-//import "@pancakeswap/pancake-swap-lib/contracts/token/BEP20/BEP20.sol";
+// TODO change all occurences of Cake to RBRY
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 
-import "./CakeToken.sol";
+import "./RBRYToken.sol";
 
 // SyrupBar with Governance.
 contract SyrupBar is ERC20('SyrupBar Token', 'SYRUP'), Ownable {
@@ -18,12 +18,12 @@ contract SyrupBar is ERC20('SyrupBar Token', 'SYRUP'), Ownable {
         _moveDelegates(_delegates[_from], address(0), _amount);
     }
 
-    // The CAKE TOKEN!
-    CakeToken public cake;
+    // The RBRY TOKEN!
+    RBRYToken public cake;
 
 
     constructor(
-        CakeToken _cake
+        RBRYToken _cake
     ) public {
         cake = _cake;
     }
@@ -140,9 +140,9 @@ contract SyrupBar is ERC20('SyrupBar Token', 'SYRUP'), Ownable {
         );
 
         address signatory = ecrecover(digest, v, r, s);
-        require(signatory != address(0), "CAKE::delegateBySig: invalid signature");
-        require(nonce == nonces[signatory]++, "CAKE::delegateBySig: invalid nonce");
-        require(block.timestamp <= expiry, "CAKE::delegateBySig: signature expired");
+        require(signatory != address(0), "RBRY::delegateBySig: invalid signature");
+        require(nonce == nonces[signatory]++, "RBRY::delegateBySig: invalid nonce");
+        require(block.timestamp <= expiry, "RBRY::delegateBySig: signature expired");
         return _delegate(signatory, delegatee);
     }
 
@@ -172,7 +172,7 @@ contract SyrupBar is ERC20('SyrupBar Token', 'SYRUP'), Ownable {
         view
         returns (uint256)
     {
-        require(blockNumber < block.number, "CAKE::getPriorVotes: not yet determined");
+        require(blockNumber < block.number, "RBRY::getPriorVotes: not yet determined");
 
         uint32 nCheckpoints = numCheckpoints[account];
         if (nCheckpoints == 0) {
@@ -245,7 +245,7 @@ contract SyrupBar is ERC20('SyrupBar Token', 'SYRUP'), Ownable {
     )
         internal
     {
-        uint32 blockNumber = safe32(block.number, "CAKE::_writeCheckpoint: block number exceeds 32 bits");
+        uint32 blockNumber = safe32(block.number, "RBRY::_writeCheckpoint: block number exceeds 32 bits");
 
         if (nCheckpoints > 0 && checkpoints[delegatee][nCheckpoints - 1].fromBlock == blockNumber) {
             checkpoints[delegatee][nCheckpoints - 1].votes = newVotes;

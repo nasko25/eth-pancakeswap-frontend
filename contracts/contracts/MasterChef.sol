@@ -1,17 +1,14 @@
 pragma solidity 0.8.6;
 
+// TODO change occurences of Cake to RBRY
 // TODO everything should be available from openzeppelin
 //  remove @pancakeswap/pancake-swap-lib from package.json when it is no longer needed
-//import '@pancakeswap/pancake-swap-lib/contracts/math/SafeMath.sol';
 import "@openzeppelin/contracts/utils/math/SafeMath.sol";
-//import '@pancakeswap/pancake-swap-lib/contracts/token/BEP20/IBEP20.sol';
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
-//import '@pancakeswap/pancake-swap-lib/contracts/token/BEP20/SafeBEP20.sol';
 import "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol";
-//import '@pancakeswap/pancake-swap-lib/contracts/access/Ownable.sol';
 //import "@openzeppelin/contracts/access/Ownable.sol";
 
-import "./CakeToken.sol";
+import "./RBRYToken.sol";
 import "./SyrupBar.sol";
 
 // import "@nomiclabs/buidler/console.sol";
@@ -65,8 +62,8 @@ contract MasterChef is Ownable {
         uint256 accCakePerShare; // Accumulated CAKEs per share, times 1e12. See below.
     }
 
-    // The CAKE TOKEN!
-    CakeToken public cake;
+    // The RBRY TOKEN!
+    RBRYToken public cake;
     // The SYRUP TOKEN!
     SyrupBar public syrup;
     // Dev address.
@@ -92,7 +89,7 @@ contract MasterChef is Ownable {
     event EmergencyWithdraw(address indexed user, uint256 indexed pid, uint256 amount);
 
     constructor(
-        CakeToken _cake,
+        RBRYToken _cake,
         SyrupBar _syrup,
         address _devaddr,
         uint256 _cakePerBlock,
@@ -234,7 +231,7 @@ contract MasterChef is Ownable {
     // Deposit LP tokens to MasterChef for CAKE allocation.
     function deposit(uint256 _pid, uint256 _amount) public {
 
-        require (_pid != 0, 'deposit CAKE by staking');
+        require (_pid != 0, 'deposit RBRY by staking');
 
         PoolInfo storage pool = poolInfo[_pid];
         UserInfo storage user = userInfo[_pid][msg.sender];
@@ -256,7 +253,7 @@ contract MasterChef is Ownable {
     // Withdraw LP tokens from MasterChef.
     function withdraw(uint256 _pid, uint256 _amount) public {
 
-        require (_pid != 0, 'withdraw CAKE by unstaking');
+        require (_pid != 0, 'withdraw RBRY by unstaking');
         PoolInfo storage pool = poolInfo[_pid];
         UserInfo storage user = userInfo[_pid][msg.sender];
         require(user.amount >= _amount, "withdraw: not good");
@@ -274,7 +271,7 @@ contract MasterChef is Ownable {
         emit Withdraw(msg.sender, _pid, _amount);
     }
 
-    // Stake CAKE tokens to MasterChef
+    // Stake RBRY tokens to MasterChef
     function enterStaking(uint256 _amount) public {
         PoolInfo storage pool = poolInfo[0];
         UserInfo storage user = userInfo[0][msg.sender];
@@ -295,7 +292,7 @@ contract MasterChef is Ownable {
         emit Deposit(msg.sender, 0, _amount);
     }
 
-    // Withdraw CAKE tokens from STAKING.
+    // Withdraw RBRY tokens from STAKING.
     function leaveStaking(uint256 _amount) public {
         PoolInfo storage pool = poolInfo[0];
         UserInfo storage user = userInfo[0][msg.sender];
