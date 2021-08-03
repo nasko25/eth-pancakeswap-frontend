@@ -1,6 +1,5 @@
 pragma solidity 0.8.6;
 
-// TODO change occurences of Cake to RBRY
 import "@openzeppelin/contracts/utils/math/SafeMath.sol";
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol";
@@ -322,7 +321,7 @@ contract MasterChef is Ownable {
 
     // Safe RBRY transfer function, just in case if rounding error causes pool to not have enough RBRYs.
     function safeRBRYTransfer(address _to, uint256 _amount) internal {
-        syrup.safeCakeTransfer(_to, _amount);
+        syrup.safeRBRYTransfer(_to, _amount);
     }
 
     // Update dev address by the previous dev.

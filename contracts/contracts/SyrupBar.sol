@@ -1,6 +1,5 @@
 pragma solidity 0.8.6;
 
-// TODO change all occurences of Cake to RBRY
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 
 import "./RBRYToken.sol";
@@ -19,22 +18,22 @@ contract SyrupBar is ERC20('SyrupBar Token', 'SYRUP'), Ownable {
     }
 
     // The RBRY TOKEN!
-    RBRYToken public cake;
+    RBRYToken public raspberry;
 
 
     constructor(
-        RBRYToken _cake
+        RBRYToken _raspberry
     ) public {
-        cake = _cake;
+        raspberry = _raspberry;
     }
 
-    // Safe cake transfer function, just in case if rounding error causes pool to not have enough CAKEs.
-    function safeCakeTransfer(address _to, uint256 _amount) public onlyOwner {
-        uint256 cakeBal = cake.balanceOf(address(this));
-        if (_amount > cakeBal) {
-            cake.transfer(_to, cakeBal);
+    // Safe RBRY transfer function, just in case if rounding error causes pool to not have enough RBRYs.
+    function safeRBRYTransfer(address _to, uint256 _amount) public onlyOwner {
+        uint256 RBRYBal = raspberry.balanceOf(address(this));
+        if (_amount > RBRYBal) {
+            raspberry.transfer(_to, RBRYBal);
         } else {
-            cake.transfer(_to, _amount);
+            raspberry.transfer(_to, _amount);
         }
     }
 
@@ -209,7 +208,7 @@ contract SyrupBar is ERC20('SyrupBar Token', 'SYRUP'), Ownable {
         internal
     {
         address currentDelegate = _delegates[delegator];
-        uint256 delegatorBalance = balanceOf(delegator); // balance of underlying CAKEs (not scaled);
+        uint256 delegatorBalance = balanceOf(delegator); // balance of underlying RBRYs (not scaled);
         _delegates[delegator] = delegatee;
 
         emit DelegateChanged(delegator, currentDelegate, delegatee);

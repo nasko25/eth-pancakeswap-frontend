@@ -6,12 +6,12 @@ const RBRYToken = artifacts.require('RBRYToken');
 
 contract('RBRYToken', ([alice, bob, carol, dev, minter]) => {
     beforeEach(async function() {
-        this.cake = await RBRYToken.new({ from: minter });
+        this.raspberry = await RBRYToken.new({ from: minter });
     });
 
 
     it('mint', async function() {
-        await this.cake.mint(alice, 1000, { from: minter });
-        assert.equal((await this.cake.balanceOf(alice)).toString(), '1000');
+        await this.raspberry.mint(alice, 1000, { from: minter });
+        assert.equal((await this.raspberry.balanceOf(alice)).toString(), '1000');
     })
 });
