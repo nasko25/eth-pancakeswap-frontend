@@ -22,7 +22,7 @@ export default {
     // https://github.com/pancakeswap/pancake-farm/blob/master/contracts/libs/Multicall.sol
     56: '0xfF6FD90A470Aaa0c1B8A54681746b07AcdFedc9B',
     97: '0x8F3273Fb89B075b1645095ABaC6ed17B2d4Bc576',
-    3: 'TODO',
+    3: '0x5BA1e12693Dc8F9c48aAD8770482f4739bEeD696', // Multicall2 by Uniswap
   },
   pancakeProfile: {
     56: '0xDf4dBf6536201370F95e06A0F8a7a70fE40E388a',
