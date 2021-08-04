@@ -3,6 +3,10 @@ import { FarmConfig } from './types'
 
 // TODO https://github.com/pancakeswap/pancake-swap-core/blob/master/contracts/PancakePair.sol
 // https://github.com/pancakeswap/pancake-swap-core/blob/master/contracts/PancakeFactory.sol
+
+// The PancakeFactory contract is only referenced in src/__tests__/config/farms.test.ts
+// (the test checks whether the factory of the tested LP token is the PancakeFactory)
+// It looks like the contracts below are deployed using PancakeFactory.createPair()
 const farms: FarmConfig[] = [
   /**
    * These 3 farms (PID 0, 251, 252) should always be at the top of the file.
@@ -12,6 +16,7 @@ const farms: FarmConfig[] = [
     lpSymbol: 'CAKE',
     lpAddresses: {
       97: '0x9C21123D94b93361a29B2C2EFB3d5CD8B17e0A9e',
+      // Cake token contract address
       56: '0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82',
     },
     token: tokens.syrup,
@@ -22,6 +27,7 @@ const farms: FarmConfig[] = [
     lpSymbol: 'CAKE-BNB LP',
     lpAddresses: {
       97: '0x3ed8936cAFDF85cfDBa29Fbe5940A5b0524824F4',
+      // PancakePair
       56: '0x0eD7e52944161450477ee417DE9Cd3a859b14fD0',
     },
     token: tokens.cake,
@@ -32,6 +38,7 @@ const farms: FarmConfig[] = [
     lpSymbol: 'BUSD-BNB LP',
     lpAddresses: {
       97: '',
+      // PancakePair, identical to the CAKE-BNB LP one
       56: '0x58F876857a02D6762E0101bb5C46A8c1ED44Dc16',
     },
     token: tokens.busd,
