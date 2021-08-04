@@ -26,6 +26,8 @@ export default {
     3: '0x5BA1e12693Dc8F9c48aAD8770482f4739bEeD696', // Multicall2 by Uniswap
   },
   pancakeProfile: {
+    // "contract for users to bind their address to a customizable profile by depositing a NFT"
+    // https://www.bscscan.com/address/0xDf4dBf6536201370F95e06A0F8a7a70fE40E388a#code
     56: '0xDf4dBf6536201370F95e06A0F8a7a70fE40E388a',
     97: '0x4B683C7E13B6d5D7fd1FeA9530F451954c1A7c8A',
   },
