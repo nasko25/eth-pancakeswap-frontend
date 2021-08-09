@@ -1,7 +1,7 @@
 import tokens from './tokens'
 import { FarmConfig } from './types'
 
-// TODO https://github.com/pancakeswap/pancake-swap-core/blob/master/contracts/PancakePair.sol
+// TODO deploy https://github.com/pancakeswap/pancake-swap-core/blob/master/contracts/PancakePair.sol
 // https://github.com/pancakeswap/pancake-swap-core/blob/master/contracts/PancakeFactory.sol
 
 // The PancakeFactory contract is only referenced in src/__tests__/config/farms.test.ts

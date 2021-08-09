@@ -1,2 +1,4 @@
 TODO: use the eth tokenlists
     currently pancake-default.tokenlist.json and pancake-unsupported.tokenlist.json are used in eth-pancakeswap-frontend/src/state/lists/hooks.ts
+
+Also, add RBRY token to the json lists after it is deployed.
