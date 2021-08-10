@@ -11,6 +11,9 @@ const cakeBnbLpToken: Token = {
 const ifos: Ifo[] = [
   {
     id: 'kalmar',
+    // IFOV2
+    // an upgrade of the original IFO model with 2 pools and
+    //  other PancakeProfile requirements.
     address: '0x1aFB32b76696CdF05593Ca3f3957AEFB23a220FB',
     isActive: true,
     name: 'Kalmar (KALM)',

@@ -6,7 +6,9 @@ import chunk from 'lodash/chunk'
 import { sub, getUnixTime } from 'date-fns'
 import farmsConfig from '../src/config/constants/farms'
 
+// https://api.thegraph.com/subgraphs/name/blocklytics/ethereum-blocks
 const BLOCK_SUBGRAPH_ENDPOINT = 'https://api.thegraph.com/subgraphs/name/pancakeswap/blocks'
+// TODO:
 const STREAMING_FAST_ENDPOINT = 'https://bsc.streamingfast.io/subgraphs/name/pancakeswap/exchange-v2'
 
 interface BlockResponse {
@@ -38,6 +40,7 @@ const getWeekAgoTimestamp = () => {
 const LP_HOLDERS_FEE = 0.0017
 const WEEKS_IN_A_YEAR = 52.1429
 
+// example https://thegraph.com/legacy-explorer/subgraph/blocklytics/ethereum-blocks?query=First%20block%20of%202020
 const getBlockAtTimestamp = async (timestamp: number) => {
   try {
     const { blocks } = await request<BlockResponse>(

@@ -1,7 +1,13 @@
 import { ChainId, JSBI, Percent, Token, WETH } from '@pancakeswap/sdk'
 import { BUSD, DAI, USDT, BTCB, CAKE, WBNB, UST, ETH, USDC } from './tokens'
 
-export const ROUTER_ADDRESS = '0x10ED43C718714eb63d5aA57B78B54704E256024E'
+// PancakeRouter
+// https://github.com/pancakeswap/pancake-swap-periphery/blob/master/contracts/PancakeRouter.sol
+// it is the same router as used in Uniswap v2
+// export const ROUTER_ADDRESS = '0x10ED43C718714eb63d5aA57B78B54704E256024E'   // bsc PancakeRouter
+
+// eth UniswapV2Router02
+export const ROUTER_ADDRESS = '0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D'
 
 // a list of tokens by chain
 type ChainTokenList = {
@@ -79,6 +85,7 @@ export const BETTER_TRADE_LESS_HOPS_THRESHOLD = new Percent(JSBI.BigInt(50), JSB
 export const ZERO_PERCENT = new Percent('0')
 export const ONE_HUNDRED_PERCENT = new Percent('1')
 
+// left the original pancakeswap blocked addrs list
 // SDN OFAC addresses
 export const BLOCKED_ADDRESSES: string[] = [
   '0x7F367cC41522cE07553e823bf3be79A889DEbe1B',
