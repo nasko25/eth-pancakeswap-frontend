@@ -7,6 +7,8 @@ import { FarmConfig } from './types'
 // The PancakeFactory contract is only referenced in src/__tests__/config/farms.test.ts
 // (the test checks whether the factory of the tested LP token is the PancakeFactory)
 // It looks like the contracts below are deployed using PancakeFactory.createPair()
+
+// TODO also try to use existing uniswap pools (as farms)
 const farms: FarmConfig[] = [
   /**
    * These 3 farms (PID 0, 251, 252) should always be at the top of the file.

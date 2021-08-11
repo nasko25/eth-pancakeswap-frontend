@@ -8,10 +8,14 @@ import farmsConfig from '../src/config/constants/farms'
 
 // https://api.thegraph.com/subgraphs/name/blocklytics/ethereum-blocks
 // const BLOCK_SUBGRAPH_ENDPOINT = 'https://api.thegraph.com/subgraphs/name/pancakeswap/blocks'
+// eth blocks endpoint
 const BLOCK_SUBGRAPH_ENDPOINT = 'https://api.thegraph.com/subgraphs/name/blocklytics/ethereum-blocks'
 // TODO: ? no apr for now
 // https://api.thegraph.com/subgraphs/name/ianlapham/uniswapv2
-const STREAMING_FAST_ENDPOINT = 'https://bsc.streamingfast.io/subgraphs/name/pancakeswap/exchange-v2'
+// https://api.thegraph.com/subgraphs/name/uniswap/uniswap-v3
+// const STREAMING_FAST_ENDPOINT = 'https://bsc.streamingfast.io/subgraphs/name/pancakeswap/exchange-v2'
+// TODO rename the variable
+const STREAMING_FAST_ENDPOINT = 'https://api.thegraph.com/subgraphs/name/uniswap/uniswap-v3'
 
 interface BlockResponse {
   blocks: {
@@ -21,7 +25,8 @@ interface BlockResponse {
 
 interface SingleFarmResponse {
   id: string
-  reserveUSD: string
+  // reserveUSD: string
+  totalValueLockedUSD: string   // used in uniswap v3
   volumeUSD: string
 }
 
@@ -64,17 +69,32 @@ const getAprsForFarmGroup = async (addresses: string[], blockWeekAgo: number): P
   try {
     const { farmsAtLatestBlock, farmsOneWeekAgo } = await request<FarmsResponse>(
       STREAMING_FAST_ENDPOINT,
+      // gql`
+      //   query farmsBulk($addresses: [String]!, $blockWeekAgo: Int!) {
+      //     farmsAtLatestBlock: pairs(first: 30, where: { id_in: $addresses }) {
+      //       id
+      //       volumeUSD
+      //       reserveUSD
+      //     }
+      //     farmsOneWeekAgo: pairs(first: 30, where: { id_in: $addresses }, block: { number: $blockWeekAgo }) {
+      //       id
+      //       volumeUSD
+      //       reserveUSD
+      //     }
+      //   }
+      // `,
+      // uniswap v3 has "pools" instead of "pairs"
       gql`
         query farmsBulk($addresses: [String]!, $blockWeekAgo: Int!) {
-          farmsAtLatestBlock: pairs(first: 30, where: { id_in: $addresses }) {
+          farmsAtLatestBlock: pools(first: 30, where: { id_in: $addresses }) {
             id
             volumeUSD
-            reserveUSD
+            totalValueLockedUSD
           }
-          farmsOneWeekAgo: pairs(first: 30, where: { id_in: $addresses }, block: { number: $blockWeekAgo }) {
+          farmsOneWeekAgo: pools(first: 30, where: { id_in: $addresses }, block: { number: $blockWeekAgo }) {
             id
             volumeUSD
-            reserveUSD
+            totalValueLockedUSD
           }
         }
       `,
@@ -90,7 +110,8 @@ const getAprsForFarmGroup = async (addresses: string[], blockWeekAgo: number): P
         const lpFeesInAYear = lpFees7d.times(WEEKS_IN_A_YEAR)
         // Some untracked pairs like KUN-QSD will report 0 volume
         if (lpFeesInAYear.gt(0)) {
-          const liquidity = new BigNumber(farm.reserveUSD)
+          // const liquidity = new BigNumber(farm.reserveUSD)
+          const liquidity = new BigNumber(farm.totalValueLockedUSD)
           lpApr = lpFeesInAYear.times(100).dividedBy(liquidity)
         }
       }
