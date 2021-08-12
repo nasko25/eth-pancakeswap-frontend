@@ -1,7 +1,9 @@
-import { ChainId, Token } from '@pancakeswap/sdk'
+import { ChainId, Token } from '@uniswap/sdk'
 
 // TODO https://github.com/Uniswap/uniswap-interface/blob/main/src/constants/tokens.ts
 
+// TODO RBRY
+// also, these addresses are for bsc
 export const CAKE: { [chainId: number]: Token } = {
   [ChainId.MAINNET]: new Token(
     ChainId.MAINNET,
@@ -10,29 +12,17 @@ export const CAKE: { [chainId: number]: Token } = {
     'CAKE',
     'PancakeSwap Token',
   ),
-  [ChainId.TESTNET]: new Token(
-    ChainId.TESTNET,
+  [ChainId.ROPSTEN]: new Token(
+    ChainId.ROPSTEN,
     '0xa35062141Fa33BCA92Ce69FeD37D0E8908868AAe',
     18,
     'CAKE',
     'PancakeSwap Token',
   ),
 }
-export const BUSD: { [chainId: number]: Token } = {
-  [ChainId.MAINNET]: new Token(
-    ChainId.MAINNET,
-    '0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56',
-    18,
-    'BUSD',
-    'Binance USD',
-  ),
-  [ChainId.TESTNET]: new Token(
-    ChainId.TESTNET,
-    '0xeD24FC36d5Ee211Ea25A80239Fb8C4Cfd80f12Ee',
-    18,
-    'BUSD',
-    'Binance USD',
-  ),
+export const USDC: { [chainId: number]: Token } = {
+  [ChainId.MAINNET]: new Token(ChainId.MAINNET, '0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48', 18, 'USDC', 'USD Coin'),
+  [ChainId.ROPSTEN]: new Token(ChainId.ROPSTEN, '0x07865c6E87B9F70255377e024ace6630C1Eaa37F', 18, 'USDC', 'USD Coin'),
 }
 
 export const WBNB = new Token(ChainId.MAINNET, '0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c', 18, 'WBNB', 'Wrapped BNB')
@@ -53,13 +43,13 @@ export const ETH = new Token(
   'ETH',
   'Binance-Peg Ethereum Token',
 )
-export const USDC = new Token(
-  ChainId.MAINNET,
-  '0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d',
-  18,
-  'USDC',
-  'Binance-Peg USD Coin',
-)
+// export const USDC = new Token(
+//   ChainId.MAINNET,
+//   '0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d',
+//   18,
+//   'USDC',
+//   'Binance-Peg USD Coin',
+// )
 
 const tokens = {
   bnb: {
