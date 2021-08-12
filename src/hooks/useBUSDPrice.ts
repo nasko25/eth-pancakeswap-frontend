@@ -1,4 +1,4 @@
-import { ChainId, Currency, currencyEquals, JSBI, Price, WETH } from '@pancakeswap/sdk'
+import { ChainId, Currency, currencyEquals, JSBI, Price, WETH } from '@uniswap/sdk'
 import { useMemo } from 'react'
 import useActiveWeb3React from 'hooks/useActiveWeb3React'
 import { BUSD, CAKE } from '../config/constants/tokens'

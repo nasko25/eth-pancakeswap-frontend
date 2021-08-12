@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useMemo, useState } from 'react'
 import styled from 'styled-components'
-import { CurrencyAmount, JSBI, Token, Trade } from '@pancakeswap/sdk'
+import { CurrencyAmount, JSBI, Token, Trade } from '@uniswap/sdk'
 import { Button, Text, ArrowDownIcon, Box, useModal } from '@pancakeswap/uikit'
 import { useIsTransactionUnsupported } from 'hooks/Trades'
 import UnsupportedCurrencyFooter from 'components/UnsupportedCurrencyFooter'
