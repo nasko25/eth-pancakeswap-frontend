@@ -2,6 +2,8 @@ import { Nft, NftSource, NftType } from './types'
 
 export const IPFS_GATEWAY = 'https://cloudflare-ipfs.com'
 
+// /collectibles
+
 export const nftSources: NftSource = {
   [NftType.PANCAKE]: {
     address: {

@@ -8,6 +8,7 @@ const pools: PoolConfig[] = [
     earningToken: tokens.cake,
     contractAddress: {
       97: '0xd3af5fe61dbaf8f73149bfcfa9fb653ff096029a',
+      // MasterChef - main staking contract (the same MasterChef contract address as in contracts.ts)
       56: '0x73feaa1eE314F8c655E354234017bE2193C9E24E',
     },
     poolCategory: PoolCategory.CORE,
@@ -22,6 +23,12 @@ const pools: PoolConfig[] = [
     earningToken: tokens.revv,
     contractAddress: {
       97: '',
+      // SmartChefInitializable -> owner is GnosisSafeProxy (usually 0xad9d97fc7bf0ac6dc68d478dcb3709454519b358 on bsc)
+      //                                    -> The GnosisSafeProxy was created by a GnosisSafeProxyFactory (https://bscscan.com/address/0x7a32d4df6d7aff9b3b975452518b4be38d8f6d6f)
+      //                                      by calling createProxyWithNonce() (the transaction: https://bscscan.com/tx/0x86e6229bbd144b420e8e6ab324ba8edf10a2e4638d2ecd59fac97e43ffd940fd)
+      //                        -> creator is SmartChefFactory (https://bscscan.com/address/0x927158be21fe3d4da7e96931bb27fd5059a8cbc2)
+      // right now when deploying a new pool, 0x7d7b90E6d12142aF7B8bABd1953365416cC363C5 makes a transaction (https://bscscan.com/tx/0xaa19dc996ae813e3299354cacfa229c1812ce95067c78b92106b945907e9a15e)
+      //  to GnosisSafeProxy to execTransaction(), which calls the SmartChefFactory (because its contract address is provided as a parameter of execTransaction)
       56: '0x8aa5b2c67852ed5334c8a7f0b5eb0ef975106793',
     },
     poolCategory: PoolCategory.CORE,
