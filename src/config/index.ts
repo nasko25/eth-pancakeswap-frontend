@@ -1,4 +1,4 @@
-import { ChainId } from '@pancakeswap/sdk'
+import { ChainId } from '@uniswap/sdk'
 import BigNumber from 'bignumber.js/bignumber'
 import { BIG_TEN } from 'utils/bigNumber'
 
@@ -9,9 +9,18 @@ BigNumber.config({
 
 export const BSC_BLOCK_TIME = 3
 
+// export const BASE_BSC_SCAN_URLS = {
+//   [ChainId.MAINNET]: 'https://bscscan.com',
+//   [ChainId.TESTNET]: 'https://testnet.bscscan.com',
+// }
+
+// TODO rename variable
 export const BASE_BSC_SCAN_URLS = {
-  [ChainId.MAINNET]: 'https://bscscan.com',
-  [ChainId.TESTNET]: 'https://testnet.bscscan.com',
+  [ChainId.MAINNET]: 'https://etherscan.io',
+  [ChainId.ROPSTEN]: 'https://ropsten.etherscan.io',
+  [ChainId.KOVAN]: 'https://kovan.etherscan.io',
+  [ChainId.RINKEBY]: 'https://rinkeby.etherscan.io',
+  [ChainId.GÖRLI]: 'https://goerli.etherscan.io',
 }
 
 // CAKE_PER_BLOCK details
