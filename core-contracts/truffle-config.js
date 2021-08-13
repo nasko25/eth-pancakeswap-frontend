@@ -22,7 +22,7 @@ const HDWalletProvider = require('@truffle/hdwallet-provider');
 //
 // const fs = require('fs');
 // const mnemonic = fs.readFileSync(".secret").toString().trim();
-const { project_id, mnemonic } = require("secrets.json");
+const { project_id, mnemonic, etherscan_key } = require("secrets.json");
 
 module.exports = {
   /**
@@ -102,5 +102,15 @@ module.exports = {
 
   db: {
     enabled: false
+  },
+
+  // TODO to verify contract with the truffle-plugin-verify execute:
+  //  truffle run verify ContractName --network ropsten
+  //  (after running `truffle migrate --network ropsten`)
+  plugins: [
+    'truffle-plugin-verify'
+  ],
+  api_keys: {
+    etherscan: etherscan_key
   }
 };
