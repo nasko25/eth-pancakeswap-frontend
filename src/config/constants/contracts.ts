@@ -18,6 +18,7 @@ export default {
     // https://docs.pancakeswap.finance/code/smart-contracts/lottery-v2
     97: '0x5790c3534F30437641541a0FA04C992799602998',
     56: '0x5aF6D33DE2ccEC94efb1bDF8f92Bd58085432d2c',
+    3: 'TODO',
   },
   multiCall: {
     // https://github.com/pancakeswap/pancake-farm/blob/master/contracts/libs/Multicall.sol
@@ -30,6 +31,7 @@ export default {
     // https://www.bscscan.com/address/0xDf4dBf6536201370F95e06A0F8a7a70fE40E388a#code
     56: '0xDf4dBf6536201370F95e06A0F8a7a70fE40E388a',
     97: '0x4B683C7E13B6d5D7fd1FeA9530F451954c1A7c8A',
+    3: 'TODO',
   },
   pancakeRabbits: {
     // PancakeBunnies ERC721 contract
@@ -82,6 +84,7 @@ export default {
     // https://bscscan.com/address/0xa80240Eb5d7E05d3F250cF000eEc0891d00b51CC#code
     56: '0xa80240Eb5d7E05d3F250cF000eEc0891d00b51CC',
     97: '',
+    3: 'TODO',
   },
   predictions: {
     // BnbPricePrediction
