@@ -1,26 +1,30 @@
 pragma solidity =0.6.12;
 
 import './libraries/AccessControl.sol';
+import './libraries/ERC721Holder.sol';
+import './libraries/IERC721.sol';
+import './libraries/Counters.sol';
+import './libraries/SafeERC20.sol';
 
-/** @title PancakeProfile.
+/** @title RaspberryProfile.
 @dev It is a contract for users to bind their address 
 to a customizable profile by depositing a NFT.
 */
-contract PancakeProfile is AccessControl, ERC721Holder {
+contract RaspberryProfile is AccessControl, ERC721Holder {
     using Counters for Counters.Counter;
-    using SafeBEP20 for IBEP20;
+    using SafeERC20 for IERC20;
     using SafeMath for uint256;
 
-    IBEP20 public cakeToken;
+    IERC20 public raspberryToken;
 
     bytes32 public constant NFT_ROLE = keccak256("NFT_ROLE");
     bytes32 public constant POINT_ROLE = keccak256("POINT_ROLE");
     bytes32 public constant SPECIAL_ROLE = keccak256("SPECIAL_ROLE");
 
     uint256 public numberActiveProfiles;
-    uint256 public numberCakeToReactivate;
-    uint256 public numberCakeToRegister;
-    uint256 public numberCakeToUpdate;
+    uint256 public numberRBRYToReactivate;
+    uint256 public numberRBRYToRegister;
+    uint256 public numberRBRYToUpdate;
     uint256 public numberTeams;
 
     mapping(address => bool) public hasRegistered;
@@ -129,21 +133,21 @@ contract PancakeProfile is AccessControl, ERC721Holder {
     }
 
     constructor(
-        IBEP20 _cakeToken,
-        uint256 _numberCakeToReactivate,
-        uint256 _numberCakeToRegister,
-        uint256 _numberCakeToUpdate
+        IERC20 _raspberryToken,
+        uint256 _numberRBRYToReactivate,
+        uint256 _numberRBRYToRegister,
+        uint256 _numberRBRYToUpdate
     ) public {
-        cakeToken = _cakeToken;
-        numberCakeToReactivate = _numberCakeToReactivate;
-        numberCakeToRegister = _numberCakeToRegister;
-        numberCakeToUpdate = _numberCakeToUpdate;
+        raspberryToken = _raspberryToken;
+        numberRBRYToReactivate = _numberRBRYToReactivate;
+        numberRBRYToRegister = _numberRBRYToRegister;
+        numberRBRYToUpdate = _numberRBRYToUpdate;
         _setupRole(DEFAULT_ADMIN_ROLE, _msgSender());
     }
 
     /**
      * @dev To create a user profile. It sends the NFT to the contract
-     * and sends CAKE to burn address. Requires 2 token approvals.
+     * and sends RBRY to burn address. Requires 2 token approvals.
      */
     function createProfile(
         uint256 _teamId,
@@ -166,11 +170,11 @@ contract PancakeProfile is AccessControl, ERC721Holder {
         // Transfer NFT to this contract
         nftToken.safeTransferFrom(_msgSender(), address(this), _tokenId);
 
-        // Transfer CAKE tokens to this contract
-        cakeToken.safeTransferFrom(
+        // Transfer RBRY tokens to this contract
+        raspberryToken.safeTransferFrom(
             _msgSender(),
             address(this),
-            numberCakeToRegister
+            numberRBRYToRegister
         );
 
         // Increment the _countUsers counter and get userId
@@ -263,11 +267,11 @@ contract PancakeProfile is AccessControl, ERC721Holder {
         // Transfer token to new address
         nftNewToken.safeTransferFrom(_msgSender(), address(this), _tokenId);
 
-        // Transfer CAKE token to this address
-        cakeToken.safeTransferFrom(
+        // Transfer RBRY token to this address
+        raspberryToken.safeTransferFrom(
             _msgSender(),
             address(this),
-            numberCakeToUpdate
+            numberRBRYToUpdate
         );
 
         // Interface to deposit the NFT contract
@@ -304,10 +308,10 @@ contract PancakeProfile is AccessControl, ERC721Holder {
         );
 
         // Transfer to this address
-        cakeToken.safeTransferFrom(
+        raspberryToken.safeTransferFrom(
             _msgSender(),
             address(this),
-            numberCakeToReactivate
+            numberRBRYToReactivate
         );
 
         // Transfer NFT to contract
@@ -507,11 +511,11 @@ contract PancakeProfile is AccessControl, ERC721Holder {
     }
 
     /**
-     * @dev Claim CAKE to burn later.
+     * @dev Claim RBRY to burn later.
      * Callable only by owner admins.
      */
     function claimFee(uint256 _amount) external onlyOwner {
-        cakeToken.safeTransfer(_msgSender(), _amount);
+        raspberryToken.safeTransfer(_msgSender(), _amount);
     }
 
     /**
@@ -553,17 +557,17 @@ contract PancakeProfile is AccessControl, ERC721Holder {
     }
 
     /**
-     * @dev Update the number of CAKE to register
+     * @dev Update the number of RBRY to register
      * Callable only by owner admins.
      */
-    function updateNumberCake(
-        uint256 _newNumberCakeToReactivate,
-        uint256 _newNumberCakeToRegister,
-        uint256 _newNumberCakeToUpdate
+    function updateNumberRBRY(
+        uint256 _newNumberRBRYToReactivate,
+        uint256 _newNumberRBRYToRegister,
+        uint256 _newNumberRBRYToUpdate
     ) external onlyOwner {
-        numberCakeToReactivate = _newNumberCakeToReactivate;
-        numberCakeToRegister = _newNumberCakeToRegister;
-        numberCakeToUpdate = _newNumberCakeToUpdate;
+        numberRBRYToReactivate = _newNumberRBRYToReactivate;
+        numberRBRYToRegister = _newNumberRBRYToRegister;
+        numberRBRYToUpdate = _newNumberRBRYToUpdate;
     }
 
     /**
