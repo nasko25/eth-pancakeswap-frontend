@@ -1,4 +1,4 @@
-pragma solidity =0.5.16;
+pragma solidity =0.6.12;
 
 import './interfaces/IRaspberryERC20.sol';
 import './libraries/SafeMath.sol';
@@ -24,7 +24,8 @@ contract RaspberryERC20 is IRaspberryERC20 {
     constructor() public {
         uint chainId;
         assembly {
-            chainId := chainid
+            // chainId := chainid
+            chainId := chainid()
         }
         DOMAIN_SEPARATOR = keccak256(
             abi.encode(
