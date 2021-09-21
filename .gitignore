@@ -37,3 +37,6 @@ debug.log*
 
 # text editors
 .vscode/
+
+# vim swp files
+*.swp
