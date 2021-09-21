@@ -6,13 +6,13 @@ export default {
     // https://github.com/pancakeswap/pancake-farm/blob/master/contracts/MasterChef.sol
     97: '0x1d32c2945C8FDCBc7156c553B7cEa4325a17f4f9', // bsc testnet
     56: '0x73feaa1eE314F8c655E354234017bE2193C9E24E', // bsc mainnet
-    3: 'TODO', // ropsten  // TODO deploy
+    3: '0x102D5a73B78855115be7FedBE428E828aC51Ea58', // ropsten
   },
   sousChef: {
     // https://github.com/pancakeswap/pancake-farm/blob/master/contracts/SousChef.sol
     97: '0xd3af5fe61dbaf8f73149bfcfa9fb653ff096029a',
     56: '0x6ab8463a4185b80905e05a9ff80a2d6b714b9e95',
-    3: 'TODO',
+    3: '0x7C23faB097DAf45e50FDdEAFf218e7B738a5EC52',
   },
   lotteryV2: {
     // https://docs.pancakeswap.finance/code/smart-contracts/lottery-v2

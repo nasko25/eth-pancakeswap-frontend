@@ -20,6 +20,17 @@ export const CAKE: { [chainId: number]: Token } = {
     'PancakeSwap Token',
   ),
 }
+
+export const RBRY: { [chainId: number]: Token } = {
+  [ChainId.ROPSTEN]: new Token(
+    ChainId.ROPSTEN,
+    '0xC4F1d37E1C07D77404cd50f36bb25492F8f38019',
+    18,
+    'RBRY',
+    'Raspberry Token',
+  ),
+}
+
 export const USDC: { [chainId: number]: Token } = {
   [ChainId.MAINNET]: new Token(ChainId.MAINNET, '0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48', 18, 'USDC', 'USD Coin'),
   [ChainId.ROPSTEN]: new Token(ChainId.ROPSTEN, '0x07865c6E87B9F70255377e024ace6630C1Eaa37F', 18, 'USDC', 'USD Coin'),
