@@ -15,6 +15,9 @@ const ROLL_LIST = 'https://app.tryroll.com/tokens.json'
 const SET_LIST = 'https://raw.githubusercontent.com/SetProtocol/uniswap-tokenlist/main/set.tokenlist.json'
 const WRAPPED_LIST = 'wrapped.tokensoft.eth'
 
+// TODO got this checksummed list from https://app.uniswap.org/#/swap
+const UNISWAP_LIST = 'https://tokens.uniswap.org/'
+
 // TODO url
 export const IS_ON_APP_URL = window && window.location.hostname === 'app.uniswap.org'
 
@@ -27,18 +30,20 @@ export const UNSUPPORTED_LIST_URLS: string[] = IS_ON_APP_URL ? [BA_LIST] : []
 export const DEFAULT_LIST_OF_LISTS: string[] = [
   // PANCAKE_TOP100,
   // PANCAKE_EXTENDED,
-  COMPOUND_LIST,
-  AAVE_LIST,
-  CMC_ALL_LIST,
-  CMC_STABLECOIN,
-  WRAPPED_LIST,
-  SET_LIST,
-  ROLL_LIST,
-  COINGECKO_LIST,
-  KLEROS_LIST,
-  OPTIMISM_LIST,
-  GEMINI_LIST,
-  ...UNSUPPORTED_LIST_URLS, // need to load unsupported tokens as well
+
+  // COMPOUND_LIST,
+  // AAVE_LIST,
+  // CMC_ALL_LIST,
+  // CMC_STABLECOIN,
+  // WRAPPED_LIST,
+  // SET_LIST,
+  // ROLL_LIST,
+  // COINGECKO_LIST,
+  // KLEROS_LIST,
+  // OPTIMISM_LIST,
+  // GEMINI_LIST,
+  UNISWAP_LIST,
+  // ...UNSUPPORTED_LIST_URLS, // need to load unsupported tokens as well
 ]
 
 // default lists to be 'active' aka searched across

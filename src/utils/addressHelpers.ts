@@ -8,8 +8,9 @@ export const getAddress = (address: Address): string => {
   return address[chainId] ? address[chainId] : address[ChainId.MAINNET]
 }
 
+// TODO rename to rbry
 export const getCakeAddress = () => {
-  return getAddress(tokens.cake.address)
+  return getAddress(tokens.rbry.address)
 }
 export const getMasterChefAddress = () => {
   return getAddress(addresses.masterChef)

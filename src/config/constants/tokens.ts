@@ -76,6 +76,15 @@ const tokens = {
     decimals: 18,
     projectLink: 'https://pancakeswap.finance/',
   },
+  rbry: {
+    symbol: 'RBRY',
+    address: {
+      3: '0xC4F1d37E1C07D77404cd50f36bb25492F8f38019',
+      56: '',
+    },
+    decimals: 18,
+    projectLink: 'TODO',
+  },
   revv: {
     symbol: 'REVV',
     address: {
