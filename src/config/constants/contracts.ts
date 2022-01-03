@@ -18,7 +18,7 @@ export default {
     // https://docs.pancakeswap.finance/code/smart-contracts/lottery-v2
     97: '0x5790c3534F30437641541a0FA04C992799602998',
     56: '0x5aF6D33DE2ccEC94efb1bDF8f92Bd58085432d2c',
-    3: 'TODO',
+    3: 'TODO lottery',
   },
   multiCall: {
     // https://github.com/pancakeswap/pancake-farm/blob/master/contracts/libs/Multicall.sol
@@ -54,7 +54,7 @@ export default {
     // https://bscscan.com/address/0xE7e53A7e9E3Cf6b840f167eF69519175c497e149#code
     56: '0xE7e53A7e9E3Cf6b840f167eF69519175c497e149',
     97: '',
-    3: 'TODO',
+    3: 'TODO?',
   },
   pointCenterIfo: {
     // XXX: It will probably be useful
@@ -112,13 +112,13 @@ export default {
     // "contract for users to mint Cake Vault collectible"
     56: '0x5B4a770Abe7Eafb2601CA4dF9d73EA99363E60a4',
     97: '',
-    3: 'TODO',
+    3: 'TODO?',
   },
   bunnySpecialPrediction: {
     // contract for users to mint exclusive collectibles if they participated in Prediction beta.
     56: '0x342c99e9aC24157657095eC69CB04b73257e7A9C',
     97: '',
-    3: 'TODO',
+    3: 'TODO?',
   },
   farmAuction: {
     // FarmAuction

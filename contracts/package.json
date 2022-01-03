@@ -9,6 +9,7 @@
 		"coverage": "npx builder coverage"
 	},
 	"dependencies": {
+		"@chainlink/contracts": "^0.3.0",
 		"@openzeppelin/contracts": "^4.2.0",
 		"@openzeppelin/test-helpers": "^0.5.6",
 		"@truffle/hdwallet-provider": "^1.5.0",
