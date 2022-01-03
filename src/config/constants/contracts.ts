@@ -31,7 +31,7 @@ export default {
     // https://www.bscscan.com/address/0xDf4dBf6536201370F95e06A0F8a7a70fE40E388a#code
     56: '0xDf4dBf6536201370F95e06A0F8a7a70fE40E388a',
     97: '0x4B683C7E13B6d5D7fd1FeA9530F451954c1A7c8A',
-    3: 'TODO',
+    3: '0xC022Fc82BA4DA37d7A58678F34d3768F8ddFB147',
   },
   pancakeRabbits: {
     // PancakeBunnies ERC721 contract
