@@ -27,5 +27,7 @@ I will first try to make it work on one of the eth test networks, and if it work
 
 * To start it as a development server:
 `yarn start --env=development`
-* Also don't forget to export the infura project id:
+* Also don't forget to either export the infura project id:
 `export PROJECT_ID="infura project id"`
+    OR
+    Copy `.env.development` to `.env.development.local` and change the `REACT_APP_NODE_1` url to include the infura project id
