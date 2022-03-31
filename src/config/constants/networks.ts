@@ -4,6 +4,7 @@ import { ChainId as ethChainId } from '@uniswap/sdk'
 // TODO update ChainId everywhere
 //import { ChainId } from '@uniswap/sdk'
 
+// TODO infura project id returns a 404, so it has probably expired
 const { project_id } = require('../../../core-contracts/secrets.json')
 
 const NETWORK_URLS: { [chainId in ChainId & ethChainId]: string } = {
