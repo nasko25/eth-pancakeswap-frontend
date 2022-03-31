@@ -24,3 +24,8 @@ I will first try to make it work on one of the eth test networks, and if it work
 
 2) Start the frontend server:
 `yarn start`
+
+* To start it as a development server:
+`yarn start --env=development`
+* Also don't forget to export the infura project id:
+`export PROJECT_ID="infura project id"`
