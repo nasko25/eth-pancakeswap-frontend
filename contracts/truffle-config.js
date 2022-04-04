@@ -22,9 +22,10 @@ const HDWalletProvider = require('@truffle/hdwallet-provider');
 //
 // const fs = require('fs');
 // const mnemonic = fs.readFileSync(".secret").toString().trim();
-const { project_id, mnemonic, etherscan_key } = require("../core-contracts/secrets.json");
+const { projectId, mnemonic, etherscan_key } = require("../core-contracts/secrets.json");
 
 module.exports = {
+  contracts_directory: "./contracts/link",
   /**
    * Networks define how you connect to your ethereum client and let you set the
    * defaults web3 uses to send transactions. If you don't specify one truffle
@@ -59,7 +60,7 @@ module.exports = {
     // Useful for deploying to a public network.
     // NB: It's important to wrap the provider as a function.
     ropsten: {
-    provider: () => new HDWalletProvider(mnemonic, `https://ropsten.infura.io/v3/${project_id}`),
+    provider: () => new HDWalletProvider(mnemonic, `https://ropsten.infura.io/v3/${projectId}`),
     network_id: 3,       // Ropsten's id
     gas: 5500000,        // Ropsten has a lower block limit than mainnet
     confirmations: 2,    // # of confs to wait between deployments. (default: 0)
@@ -83,7 +84,8 @@ module.exports = {
   compilers: {
     solc: {
       // version: "0.5.16",    // Fetch exact version from solc-bin (default: truffle's version)
-      version: "0.8.6",
+      // version: "0.8.6",
+      version: "0.4.16",
       // docker: true,        // Use "0.5.1" you've installed locally with docker (default: false)
       // settings: {          // See the solidity docs for advice about optimization and evmVersion
       //  optimizer: {
