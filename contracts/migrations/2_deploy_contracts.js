@@ -1,9 +1,9 @@
-const MasterChef = artifacts.require("MasterChef");
+// const MasterChef = artifacts.require("MasterChef");
 // const Multicall = artifacts.require("Multicall");
-const RBRYToken = artifacts.require("RBRYToken");
-const SousChef = artifacts.require("SousChef");
-const SyrupBar = artifacts.require("SyrupBar");
-const Profile = artifacts.require("RaspberryProfile");
+// const RBRYToken = artifacts.require("RBRYToken");
+// const SousChef = artifacts.require("SousChef");
+// const SyrupBar = artifacts.require("SyrupBar");
+// const Profile = artifacts.require("RaspberryProfile");
 const LinkToken = artifacts.require("LinkToken");
 module.exports = function(deployer) {
     // deployer.deploy(Multicall);
@@ -24,6 +24,7 @@ module.exports = function(deployer) {
     // TODO deploy random number generator, then lottery, then call RNG.setLotteryAddress() to set the lottery's address
 
     // link token/contract: https://etherscan.io/address/0x514910771af9ca656af840dff83e8264ecf986ca#code (will need to deploy it on ropsten)
+    // deployed link token address: 0xEFB6eD65c056299d64614c5687Cb75DE2709c2b5
     deployer.deploy(LinkToken);
 };
 
