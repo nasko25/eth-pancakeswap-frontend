@@ -25,7 +25,9 @@ module.exports = function(deployer) {
 
     // link token/contract: https://etherscan.io/address/0x514910771af9ca656af840dff83e8264ecf986ca#code (will need to deploy it on ropsten)
     // deployed link token address: 0xEFB6eD65c056299d64614c5687Cb75DE2709c2b5
-    deployer.deploy(LinkToken);
+    // deployer.deploy(LinkToken);
+
+    // TODO deploy BlockHashStore, to be able to deploy VRFCoordinator, which is needed for the RNG, needed for the lottery
 };
 
 /**
