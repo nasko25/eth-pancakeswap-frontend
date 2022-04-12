@@ -4,7 +4,10 @@
 // const SousChef = artifacts.require("SousChef");
 // const SyrupBar = artifacts.require("SyrupBar");
 // const Profile = artifacts.require("RaspberryProfile");
-const LinkToken = artifacts.require("LinkToken");
+// const LinkToken = artifacts.require("LinkToken");
+const BlockhashStore = artifacts.require("BlockhashStore");
+const VRFCoordinator = artifacts.require("VRFCoordinator");
+// const RNG = artifacts.require("RNG");
 module.exports = function(deployer) {
     // deployer.deploy(Multicall);
     // deployer.deploy(RBRYToken).then(async () => {
@@ -27,7 +30,20 @@ module.exports = function(deployer) {
     // deployed link token address: 0xEFB6eD65c056299d64614c5687Cb75DE2709c2b5
     // deployer.deploy(LinkToken);
 
-    // TODO deploy BlockHashStore, to be able to deploy VRFCoordinator, which is needed for the RNG, needed for the lottery
+    // link token address on ropsten
+    const link_addr = "0xEFB6eD65c056299d64614c5687Cb75DE2709c2b5";
+
+    // VRFCoordinator address
+    const vrf_coord_addr = "TODO";
+
+    // TODO deploy BlockhashStore, to be able to deploy VRFCoordinator, which is needed for the RNG, needed for the lottery
+    deployer.deploy(BlockhashStore).then(async () => {
+        await deployer.deploy(VRFCoordinator, link_addr, BlockhashStore.address);
+    });
+
+    // deployer.deploy(RNG, vrf_coord_addr, link_addr).then(async () => {
+    //     await deployer.deploy(Lottery, ...);
+    // });
 };
 
 /**
