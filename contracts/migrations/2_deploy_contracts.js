@@ -33,13 +33,16 @@ module.exports = function(deployer) {
     // link token address on ropsten
     const link_addr = "0xEFB6eD65c056299d64614c5687Cb75DE2709c2b5";
 
+    // BlockhashStore address
+    const blockhashStoreAddr = "0x75a0766eb65f3c421a8d0d7b6ec44036a5002558";
     // VRFCoordinator address
-    const vrf_coord_addr = "TODO";
+    const vrf_coord_addr = "0xb444b2907741a9D9EB85125a904255A3A6184f24";
 
     // TODO deploy BlockhashStore, to be able to deploy VRFCoordinator, which is needed for the RNG, needed for the lottery
-    deployer.deploy(BlockhashStore).then(async () => {
-        await deployer.deploy(VRFCoordinator, link_addr, BlockhashStore.address);
-    });
+    // deployer.deploy(BlockhashStore).then(async () => {
+        // for some reason the blockhashstore contract took too long to be deployed right now, so it had to be a separate transaction
+        /* await */ deployer.deploy(VRFCoordinator, link_addr, blockhashStoreAddr); // BlockhashStore.address);
+    // });
 
     // deployer.deploy(RNG, vrf_coord_addr, link_addr).then(async () => {
     //     await deployer.deploy(Lottery, ...);
