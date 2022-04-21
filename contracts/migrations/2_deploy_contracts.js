@@ -30,6 +30,8 @@ module.exports = function(deployer) {
     // deployed link token address: 0xEFB6eD65c056299d64614c5687Cb75DE2709c2b5
     // deployer.deploy(LinkToken);
 
+    // rbry token address
+    const rbry_addr = "0xC4F1d37E1C07D77404cd50f36bb25492F8f38019";
     // link token address on ropsten
     const link_addr = "0xEFB6eD65c056299d64614c5687Cb75DE2709c2b5";
 
@@ -41,12 +43,16 @@ module.exports = function(deployer) {
     // TODO deploy BlockhashStore, to be able to deploy VRFCoordinator, which is needed for the RNG, needed for the lottery
     // deployer.deploy(BlockhashStore).then(async () => {
         // for some reason the blockhashstore contract took too long to be deployed right now, so it had to be a separate transaction
-        /* await */ deployer.deploy(VRFCoordinator, link_addr, blockhashStoreAddr); // BlockhashStore.address);
+        // /* await */ deployer.deploy(VRFCoordinator, link_addr, blockhashStoreAddr); // BlockhashStore.address);
     // });
 
-    // deployer.deploy(RNG, vrf_coord_addr, link_addr).then(async () => {
-    //     await deployer.deploy(Lottery, ...);
-    // });
+    // TODO for the RBRYSwapLottery try to reduce the size of the contract:
+    // `npm install truffle-contract-size`
+    // plugins: ["truffle-contract-size"] to the truffle config
+    // `truffle run contract-size`
+    deployer.deploy(RNG, vrf_coord_addr, link_addr).then(async () => {
+        await deployer.deploy(Lottery, rbry_address, RNG.address);
+    });
 };
 
 /**
