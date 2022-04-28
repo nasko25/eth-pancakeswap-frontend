@@ -41,7 +41,7 @@ module.exports = function(deployer) {
     // VRFCoordinator address
     const vrf_coord_addr = "0xb444b2907741a9D9EB85125a904255A3A6184f24";
 
-    const rng_address = "0xd9d4DFA8C5e6e1331eBa44F6BA47F666F183e745";
+    const rng_addr = "0xd9d4DFA8C5e6e1331eBa44F6BA47F666F183e745";
 
     // TODO deploy BlockhashStore, to be able to deploy VRFCoordinator, which is needed for the RNG, needed for the lottery
     // deployer.deploy(BlockhashStore).then(async () => {
@@ -53,10 +53,10 @@ module.exports = function(deployer) {
     // `npm install truffle-contract-size`
     // plugins: ["truffle-contract-size"] to the truffle config
     // `truffle run contract-size`
-    deployer.deploy(RNG, vrf_coord_addr, link_addr).then(async () => {
+    // deployer.deploy(RNG, vrf_coord_addr, link_addr).then(async () => {
         // TODO max code size exceeded error when trying to deploy
-        await deployer.deploy(Lottery, rbry_addr, RNG.address);
-    });
+        await deployer.deploy(Lottery, rbry_addr, rng_addr); // RNG.address);
+    // });
 };
 
 /**
