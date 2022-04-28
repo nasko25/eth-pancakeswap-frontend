@@ -22,6 +22,8 @@ import '@chainlink/contracts/src/v0.8/interfaces/LinkTokenInterface.sol';
 // File: @chainlink/contracts/src/v0.8/dev/VRFRequestIDBase.sol
 import '@chainlink/contracts/src/v0.8/VRFRequestIDBase.sol';
 
+import './IRandomNumberGenerator.sol';
+
 // File: @chainlink/contracts/src/v0.8/dev/VRFConsumerBase.sol
 pragma solidity ^0.8.0;
 
@@ -115,28 +117,6 @@ abstract contract VRFConsumerBase is VRFRequestIDBase {
         require(msg.sender == vrfCoordinator, "Only VRFCoordinator can fulfill");
         fulfillRandomness(requestId, randomness);
     }
-}
-
-
-// File: contracts/interfaces/IRandomNumberGenerator.sol
-
-pragma solidity ^0.8.4;
-
-interface IRandomNumberGenerator {
-    /**
-     * Requests randomness from a user-provided seed
-     */
-    function getRandomNumber(uint256 _seed) external;
-
-    /**
-     * View latest lotteryId numbers
-     */
-    function viewLatestLotteryId() external view returns (uint256);
-
-    /**
-     * Views random result
-     */
-    function viewRandomResult() external view returns (uint32);
 }
 
 pragma solidity ^0.8.4;
