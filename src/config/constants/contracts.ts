@@ -18,7 +18,7 @@ export default {
     // https://docs.pancakeswap.finance/code/smart-contracts/lottery-v2
     97: '0x5790c3534F30437641541a0FA04C992799602998',
     56: '0x5aF6D33DE2ccEC94efb1bDF8f92Bd58085432d2c',
-    3: 'TODO lottery',
+    3: '0x38bd5D01202BBf0dC0dAf9a436A6345b4D6f69bD',
   },
   multiCall: {
     // https://github.com/pancakeswap/pancake-farm/blob/master/contracts/libs/Multicall.sol

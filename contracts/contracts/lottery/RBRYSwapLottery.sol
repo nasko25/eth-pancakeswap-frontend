@@ -1,7 +1,6 @@
 // code taken from https://bscscan.com/address/0x5af6d33de2ccec94efb1bdf8f92bd58085432d2c#code
 
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.0;
 import "@openzeppelin/contracts/utils/Context.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/security/ReentrancyGuard.sol";

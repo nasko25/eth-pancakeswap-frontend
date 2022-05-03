@@ -89,13 +89,13 @@ module.exports = {
       // version: "0.6.6",
       // version: "0.4.16",
       // docker: true,        // Use "0.5.1" you've installed locally with docker (default: false)
-      // settings: {          // See the solidity docs for advice about optimization and evmVersion
-      //  optimizer: {
-      //    enabled: false,
-      //    runs: 200
-      //  },
-      //  evmVersion: "byzantium"
-      // }
+      settings: {          // See the solidity docs for advice about optimization and evmVersion
+       optimizer: {
+         enabled: true,
+         runs: 200
+       },
+      // evmVersion: "byzantium"
+      }
     }
   },
 
@@ -113,7 +113,8 @@ module.exports = {
   //  truffle run verify ContractName --network ropsten
   //  (after running `truffle migrate --network ropsten`)
   plugins: [
-    'truffle-plugin-verify'
+    'truffle-plugin-verify',
+    'truffle-contract-size'
   ],
   api_keys: {
     etherscan: etherscan_key
