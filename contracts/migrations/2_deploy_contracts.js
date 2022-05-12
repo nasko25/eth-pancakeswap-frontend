@@ -9,6 +9,7 @@
 // const VRFCoordinator = artifacts.require("VRFCoordinator");
 const RNG = artifacts.require("RandomNumberGenerator");
 const Lottery = artifacts.require("RBRYSwapLottery");
+const RBRYVault = artifacts.require("RaspberryValut");
 module.exports = function(deployer) {
     // deployer.deploy(Multicall);
     // deployer.deploy(RBRYToken).then(async () => {
@@ -43,6 +44,8 @@ module.exports = function(deployer) {
 
     const rng_addr = "0xd9d4DFA8C5e6e1331eBa44F6BA47F666F183e745";
     const lottery_addr = "0x38bd5D01202BBf0dC0dAf9a436A6345b4D6f69bD";
+    const masterchef_addr = "0x102D5a73B78855115be7FedBE428E828aC51Ea58";
+    const deploying_addr = "0x145ABf73a136dc3Ad9BAA9f123553Dfcfd716D74";
 
     // TODO deploy BlockhashStore, to be able to deploy VRFCoordinator, which is needed for the RNG, needed for the lottery
     // deployer.deploy(BlockhashStore).then(async () => {
@@ -56,8 +59,10 @@ module.exports = function(deployer) {
     // `truffle run contract-size`
     // deployer.deploy(RNG, vrf_coord_addr, link_addr).then(async () => {
         // TODO max code size exceeded error when trying to deploy
-        deployer.deploy(Lottery, rbry_addr, rng_addr); // RNG.address);
+        // deployer.deploy(Lottery, rbry_addr, rng_addr); // RNG.address);
     // });
+                                                                                        // _admin       // _treasury
+    deployer.deploy(RBRYVault, rbry_addr, "TODO SyrupBar Token addy", masterchef_addr, deploying_addr, deploying_addr)
 };
 
 /**

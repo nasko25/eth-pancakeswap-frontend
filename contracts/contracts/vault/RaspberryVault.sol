@@ -1,7 +1,4 @@
-/**
- *Submitted for verification at BscScan.com on 2021-04-29
-*/
-
+// code of Vault taken directly from: https://bscscan.com/address/0xa80240Eb5d7E05d3F250cF000eEc0891d00b51CC#code
 // File: @openzeppelin/contracts/utils/Context.sol
 
 // SPDX-License-Identifier: MIT
