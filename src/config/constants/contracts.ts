@@ -86,12 +86,11 @@ export default {
     3: 'TODO easter nft',
   },
   cakeVault: {
-    // TODO deploy?
     // "Auto CAKE Syrup Pool Smart Contract"
     // https://bscscan.com/address/0xa80240Eb5d7E05d3F250cF000eEc0891d00b51CC#code
     56: '0xa80240Eb5d7E05d3F250cF000eEc0891d00b51CC',
     97: '',
-    3: 'TODO cake vault',
+    3: '0xFB5591cB6c3983AEF94D7D64a6bCc88cA9622D98',
   },
   predictions: {
     // BnbPricePrediction
