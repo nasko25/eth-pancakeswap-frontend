@@ -25,6 +25,7 @@ export default {
     56: '0xfF6FD90A470Aaa0c1B8A54681746b07AcdFedc9B',
     97: '0x8F3273Fb89B075b1645095ABaC6ed17B2d4Bc576',
     3: '0x5BA1e12693Dc8F9c48aAD8770482f4739bEeD696', // Multicall2 by Uniswap
+    // 3: '0xec784B82b16f48E022B35310e4a5b538778Df815',
   },
   pancakeProfile: {
     // "contract for users to bind their address to a customizable profile by depositing a NFT"

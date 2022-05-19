@@ -18,6 +18,8 @@ const multicall = async <T = any>(abi: any[], calls: Call[]): Promise<T> => {
     const multi = getMulticallContract(signer.getSigner())
     const itf = new ethers.utils.Interface(abi)
 
+    // TODO the multicall transaction gets reverted for some reason, so probably one of the calls errors out
+    console.log('calls: ', calls)
     const calldata = calls.map((call) => [call.address.toLowerCase(), itf.encodeFunctionData(call.name, call.params)])
     const { returnData } = await multi.aggregate(calldata)
 
