@@ -1,5 +1,5 @@
 // const MasterChef = artifacts.require("MasterChef");
-const Multicall = artifacts.require("Multicall2");
+// const Multicall = artifacts.require("Multicall2");
 // const RBRYToken = artifacts.require("RBRYToken");
 // const SousChef = artifacts.require("SousChef");
 // const SyrupBar = artifacts.require("SyrupBar");
@@ -10,6 +10,7 @@ const Multicall = artifacts.require("Multicall2");
 // const RNG = artifacts.require("RandomNumberGenerator");
 // const Lottery = artifacts.require("RBRYSwapLottery");
 // const RBRYVault = artifacts.require("RaspberryVault");
+const WBNB = artifacts.require("WBNB");
 module.exports = function(deployer) {
     // deployer.deploy(Multicall);
     // deployer.deploy(RBRYToken).then(async () => {
@@ -68,7 +69,7 @@ module.exports = function(deployer) {
     const rbry_vault_addr = "0xFB5591cB6c3983AEF94D7D64a6bCc88cA9622D98";
     const muticall_addr = "0xec784B82b16f48E022B35310e4a5b538778Df815";
 
-    deployer.deploy(Multicall);
+    deployer.deploy(WBNB);
 };
 
 /**

@@ -25,7 +25,7 @@ const HDWalletProvider = require('@truffle/hdwallet-provider');
 const { projectId, mnemonic, etherscan_key } = require("../core-contracts/secrets.json");
 
 module.exports = {
-  contracts_directory: "./contracts/multicall",
+  contracts_directory: "./contracts/tokens",
   /**
    * Networks define how you connect to your ethereum client and let you set the
    * defaults web3 uses to send transactions. If you don't specify one truffle
@@ -85,10 +85,10 @@ module.exports = {
   compilers: {
     solc: {
       // version: "0.5.16",    // Fetch exact version from solc-bin (default: truffle's version)
-      version: "0.8.6",
+      // version: "0.8.6",
       // version: "0.6.12",
       // version: "0.6.6",
-      // version: "0.4.16",
+      version: "0.4.18",
       // docker: true,        // Use "0.5.1" you've installed locally with docker (default: false)
       settings: {          // See the solidity docs for advice about optimization and evmVersion
        optimizer: {
