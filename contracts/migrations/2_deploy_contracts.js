@@ -68,6 +68,7 @@ module.exports = function(deployer) {
     // txn hash: 0x72647e25bbfbc85fea20817eaac7cc689e6a0dbf13bd80fab6c3b9b7845cd747
     const rbry_vault_addr = "0xFB5591cB6c3983AEF94D7D64a6bCc88cA9622D98";
     const muticall_addr = "0xec784B82b16f48E022B35310e4a5b538778Df815";
+    const wbnb_addr = "0xb7D1CF6Bb087f24Fe17dAcEBB52ab2a93915f25D";
 
     deployer.deploy(WBNB);
 };
