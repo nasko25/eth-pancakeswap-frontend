@@ -26,6 +26,7 @@ const farms: FarmConfig[] = [
     token: tokens.syrup,
     quoteToken: tokens.wbnb,
   },
+  // TODO add this pool to the contract and then uncomment the whole src\config\constants\ifo.ts
   // {
   //   pid: 251,
   //   lpSymbol: 'CAKE-BNB LP',
