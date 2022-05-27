@@ -1,5 +1,5 @@
 const ethers = require('ethers')
-const abi = require('./contracts/build/contracts/MasterChef.json').abi
+const abi = require('../contracts/build/contracts/MasterChef.json').abi
 const masterchef_addr = '0x102D5a73B78855115be7FedBE428E828aC51Ea58'
 
 console.log(abi)
