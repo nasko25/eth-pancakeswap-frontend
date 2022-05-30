@@ -74,7 +74,8 @@ module.exports = {
     // }
   },
   // compile only RaspberryPair.sol
-  contracts_directory: "./contracts/RaspberryPair.sol",
+  contracts_directory: "./contracts/factory",
+  // contracts_directory: "./contracts/profile", //solc 0.6.12
 
   // Set default mocha options here, use special reporters etc.
   mocha: {
