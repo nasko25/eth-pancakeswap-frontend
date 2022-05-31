@@ -2,9 +2,9 @@
 
 pragma solidity ^0.6.0;
 
-import '../interfaces/IERC20.sol';
+import '../../factory/interfaces/IERC20.sol';
 import './SafeMath.sol';
-import '../utils/Address.sol';
+import '../../utils/Address.sol';
 
 /**
  * @title SafeERC20
@@ -74,8 +74,8 @@ library SafeERC20 {
         uint256 value
     ) internal {
         uint256 newAllowance = token.allowance(address(this), spender).sub(
-            value,
-            'SafeERC20: decreased allowance below zero'
+            value //,
+            // 'SafeERC20: decreased allowance below zero'
         );
         _callOptionalReturn(token, abi.encodeWithSelector(token.approve.selector, spender, newAllowance));
     }
